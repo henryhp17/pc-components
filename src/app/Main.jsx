@@ -10,7 +10,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
 import Header from './fragment/Header';
-import SideMenu from './fragment/SideMenu';
 
 const styles = {
   container: {
@@ -56,8 +55,7 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
-          <Header onLeftIconTouchTap={}/>
-          <SideMenu isShown={false} />
+          <Header />
           <Dialog
             open={this.state.open}
             title="Super Secret Password"
