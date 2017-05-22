@@ -3,14 +3,14 @@
  * which incorporates components provided by Material-UI.
  */
 import React, { Component } from 'react';
+import { deepOrange500 } from 'material-ui/styles/colors';
+import { getMuiTheme, MuiThemeProvider } from 'material-ui/styles';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
-import { deepOrange500 } from 'material-ui/styles/colors';
-import FlatButton from 'material-ui/FlatButton';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from './fragment/Header';
+import SideMenu from './fragment/SideMenu';
 
 const styles = {
   container: {
@@ -56,7 +56,8 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
-          <Header />
+          <Header onLeftIconTouchTap={}/>
+          <SideMenu isShown={false} />
           <Dialog
             open={this.state.open}
             title="Super Secret Password"

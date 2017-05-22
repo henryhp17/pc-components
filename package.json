@@ -35,8 +35,10 @@
   },
   "dependencies": {
     "material-ui": "latest",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-tap-event-plugin": "^2.0.1",
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^2.5.1",

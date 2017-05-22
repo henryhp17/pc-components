@@ -5,7 +5,7 @@ import {
   MenuItem,
   IconButton,
 } from 'material-ui';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import { NavigationMoreVert } from 'material-ui/svg-icons';
 
 class Header extends Component {
   constructor(props, context) {
@@ -23,7 +23,7 @@ class Header extends Component {
         iconElementRight={
           <IconMenu
             iconButtonElement={
-              <IconButton><MoreVertIcon /></IconButton>
+              <IconButton><NavigationMoreVert /></IconButton>
             }
             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
@@ -33,8 +33,8 @@ class Header extends Component {
             <MenuItem primaryText="Sign out" />
           </IconMenu>
         }
+        onLeftIconButtonTouchTap={this.props.}
       >
-
       </AppBar>
     );
   }
