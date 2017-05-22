@@ -1,16 +1,26 @@
 import React from 'react';
-import PurpleAppBar from './PurpleAppBar.js';      // AppBar with simple overrides
-import SuccessButton from './SuccessButton.js';    // A button with complex overrides
-import { Button } from 'react-toolbox/lib/button'; // Bundled component import
+import Header from './fragment/Header';
+import SideMenu from './fragment/SideMenu';
+import ProductType from './fragment/ProductType';
 
-const App = () => (
-  <div>
-    <PurpleAppBar />
-    <section style={{ padding: 20 }}>
-      <SuccessButton label='Success' primary raised />
-      <Button label='Primary Button' primary />
-    </section>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    isSideMenuOpen: false
+  };
+
+  toggleSideMenu = () => {
+    this.setState({isSideMenuOpen: !this.state.isSideMenuOpen});
+  };
+
+  render () {
+    return (
+        <div>
+          <Header toggleSideMenu={this.toggleSideMenu} />
+          <SideMenu open={this.state.isSideMenuOpen} toggleSideMenu={this.toggleSideMenu} />
+          <ProductType />
+        </div>
+    );
+  }
+}
 
 export default App;
