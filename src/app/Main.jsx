@@ -1,19 +1,19 @@
 /**
- * In this file, we create a React component
+ *  * In this file, we create a React component
  * which incorporates components provided by Material-UI.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
-import {deepOrange500} from 'material-ui/styles/colors';
+import { deepOrange500 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import Header from './fragment/Header';
+
 const styles = {
   container: {
-    textAlign: 'center',
-    paddingTop: 200,
   },
 };
 
@@ -32,13 +32,13 @@ class Main extends Component {
     };
   }
 
-  handleRequestClose = () => {
+  handleRequestClose() {
     this.setState({
       open: false,
     });
   }
 
-  handleTouchTap = () => {
+  handleTouchTap() {
     this.setState({
       open: true,
     });
@@ -48,7 +48,7 @@ class Main extends Component {
     const standardActions = (
       <FlatButton
         label="Ok"
-        primary={true}
+        primary
         onTouchTap={this.handleRequestClose}
       />
     );
@@ -56,6 +56,7 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
+          <Header />
           <Dialog
             open={this.state.open}
             title="Super Secret Password"
@@ -68,7 +69,7 @@ class Main extends Component {
           <h2>example project</h2>
           <RaisedButton
             label="Super Secret Password"
-            secondary={true}
+            secondary
             onTouchTap={this.handleTouchTap}
           />
         </div>

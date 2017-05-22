@@ -20,6 +20,9 @@ const config = {
     host: 'localhost', // Change to '0.0.0.0' for external facing server
   },
   devtool: 'eval',
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   output: {
     path: path.resolve(__dirname, 'build'), // Path of output file
     filename: 'app.js',
@@ -29,7 +32,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     // Moves files
     new TransferWebpackPlugin([
-      {from: 'www'},
+      { from: 'www' },
     ], path.resolve(__dirname, 'src')),
   ],
   module: {
@@ -40,6 +43,14 @@ const config = {
         loader: 'babel-loader',
         query: {
           cacheDirectory: true,
+        },
+      },
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react'],
         },
       },
     ],

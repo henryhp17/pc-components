@@ -11,6 +11,9 @@ const config = {
   // Render source-map file for final build
   devtool: 'source-map',
   // output config
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   output: {
     path: path.resolve(__dirname, 'build'), // Path of output file
     filename: 'app.js', // Name of output file
@@ -18,9 +21,9 @@ const config = {
   plugins: [
     // Define production build to allow React to strip out unnecessary checks
     new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
     // Minify the bundle
     new webpack.optimize.UglifyJsPlugin({
@@ -28,7 +31,7 @@ const config = {
     }),
     // Transfer Files
     new TransferWebpackPlugin([
-      {from: 'www'},
+      { from: 'www' },
     ], path.resolve(__dirname, 'src')),
   ],
   module: {
@@ -39,6 +42,14 @@ const config = {
         loader: 'babel-loader',
         query: {
           cacheDirectory: true,
+        },
+      },
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react'],
         },
       },
     ],
