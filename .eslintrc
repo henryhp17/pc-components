@@ -4,10 +4,6 @@
     "func-names": [
       "error",
       "never"
-    ],
-    "arrow-body-style": [
-      "error",
-      "always"
     ]
   }
 }

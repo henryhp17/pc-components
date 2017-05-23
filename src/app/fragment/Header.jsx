@@ -32,7 +32,7 @@ class Header extends Component {
     });
   }
 
-  mainMenuChange(event, menuItem, index) {
+  mainMenuChange() {
     this.setState({
       sideMenuOpen: false,
     });
@@ -93,7 +93,7 @@ class Header extends Component {
 
 Header.propTypes = {
   sideMenuOpen: PropTypes.bool,
-  selectedMenu: PropTypes.string
+  selectedMenu: PropTypes.string,
 };
 Header.defaultProps = {
   sideMenuOpen: false,
