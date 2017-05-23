@@ -4,7 +4,16 @@
   "description": "PC build simulator",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "lint": "eslint src tools && jscs src tools --verbose",
+    "csslint": "csscomb src/components --lint --verbose",
+    "csscomb": "csscomb src/components --verbose",
+    "test": "eslint src && jest",
+    "clean": "babel-node tools/run clean",
+    "copy": "babel-node tools/run copy",
+    "bundle": "babel-node tools/run bundle",
+    "build": "babel-node tools/run build",
+    "deploy": "babel-node tools/run deploy",
+    "start": "babel-node tools/run start"
   },
   "repository": {
     "type": "git",
@@ -48,7 +57,6 @@
     "jade": "1.11.0",
     "jsonwebtoken": "5.7.0",
     "markdown-it": "6.0.0",
-    "material-design-lite": "^1.3.0",
     "node-fetch": "1.3.3",
     "normalize.css": "3.0.3",
     "passport": "0.3.2",
@@ -57,7 +65,9 @@
     "pretty-error": "2.0.0",
     "react": "0.14.7",
     "react-dom": "0.14.7",
+    "react-md": "^1.0.14",
     "react-routing": "0.0.7",
+    "react-toolbox": "^2.0.0-beta.8",
     "source-map-support": "0.4.0",
     "whatwg-fetch": "0.11.0"
   },
@@ -106,6 +116,7 @@
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.2",
     "replace": "^0.3.0",
+    "sass-loader": "^6.0.5",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-hot-middleware": "^2.9.1",
@@ -124,17 +135,5 @@
       "react",
       "enzyme"
     ]
-  },
-  "scripts": {
-    "lint": "eslint src tools && jscs src tools --verbose",
-    "csslint": "csscomb src/components --lint --verbose",
-    "csscomb": "csscomb src/components --verbose",
-    "test": "eslint src && jest",
-    "clean": "babel-node tools/run clean",
-    "copy": "babel-node tools/run copy",
-    "bundle": "babel-node tools/run bundle",
-    "build": "babel-node tools/run build",
-    "deploy": "babel-node tools/run deploy",
-    "start": "babel-node tools/run start"
   }
 }
