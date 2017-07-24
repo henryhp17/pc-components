@@ -51,6 +51,10 @@ class ProductType extends Component {
 
   }
 
+  validateProductDescription() {
+
+  }
+
   render() {
     const dialogActions = [
       <FlatButton
@@ -107,7 +111,6 @@ class ProductType extends Component {
           <TextField
             id="product-type-name"
             floatingLabelText="Product type name"
-            errorText={this.validateProductName}
             fullWidth
           />
           <TextField

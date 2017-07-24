@@ -12,6 +12,6 @@ injectTapEventPlugin();
 if (typeof window !== 'undefined') {
   render(
     React.createElement(Main, {}, null),
-    document.getElementById('app')
+    document.getElementById('app'),
   );
 }
