@@ -3,11 +3,20 @@
  * which incorporates components provided by Material-UI.
  */
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { deepOrange500 } from 'material-ui/styles/colors';
 import { getMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 
-import Header from './fragment/Header';
-import ProductType from './views/ProductType';
+import Header from './containers/Header';
+import Home from './containers/Home';
+import ProductType from './containers/ProductType';
+
+import pcComponentsApp from './reducers/reducers';
 
 const styles = {
   container: {},
@@ -22,6 +31,9 @@ const muiTheme = getMuiTheme({
   },
 });
 
+// Initialize redux store
+const store = createStore(pcComponentsApp);
+
 class Main extends Component {
   constructor(props, context) {
     super(props, context);
@@ -34,12 +46,17 @@ class Main extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={styles.container}>
-          <Header />
-          <div style={styles.contentBody}>
-            <ProductType />
-          </div>
-        </div>
+        <Provider store={store}>
+          <Router>
+            <div style={styles.container}>
+              <Header />
+              <div style={styles.contentBody}>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/products" component={ProductType} />
+              </div>
+            </div>
+          </Router>
+        </Provider>
       </MuiThemeProvider>
     );
   }

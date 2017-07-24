@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Router,
-  Route,
-  Switch,
-} from 'react-router';
+  Link,
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   AppBar,
@@ -85,10 +83,10 @@ class Header extends Component {
             onItemTouchTap={this.mainMenuItemTouchTap}
             value={this.state.selectedMenu}
           >
-            <MenuItem value="home"><Link to="">Home</Link></MenuItem>
-            <MenuItem value="products">Products</MenuItem>
-            <MenuItem value="builds">Builds</MenuItem>
-            <MenuItem value="games">Games</MenuItem>
+            <MenuItem value="home"><Link to="/">Home</Link></MenuItem>
+            <MenuItem value="products"><Link to="/products">Products</Link></MenuItem>
+            <MenuItem value="builds"><Link to="/builds">Builds</Link></MenuItem>
+            <MenuItem value="games"><Link to="/games">Games</Link></MenuItem>
           </Menu>
         </Drawer>
       </div>
