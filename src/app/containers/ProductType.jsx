@@ -16,8 +16,9 @@ import {
 } from 'material-ui/svg-icons';
 
 const style = {
-  margin: 10,
-  float: 'right',
+  bottom: 20,
+  right: 20,
+  position: 'fixed',
 };
 
 class ProductType extends Component {
