@@ -37,6 +37,7 @@ class ProductType extends Component {
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.validateProductName = this.validateProductName.bind(this);
+    this.selectProductType = this.selectProductType.bind(this);
   }
 
   handleOpen() {
@@ -45,6 +46,10 @@ class ProductType extends Component {
 
   handleClose() {
     this.setState({ dialogOpen: false });
+  }
+
+  selectProductType() {
+
   }
 
   validateProductName() {
@@ -80,15 +85,24 @@ class ProductType extends Component {
 
     return (
       <div>
-        <Table>
-          <TableHeader>
+        <Table
+          onRowSelection={this.selectProductType}
+          selectable={false}
+        >
+          <TableHeader
+            adjustForCheckbox={false}
+            displaySelectAll={false}
+          >
             <TableRow>
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>Description</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody>
-            {this.state.types.map((type) => (
+          <TableBody
+            showRowHover
+            displayRowCheckbox={false}
+          >
+            {this.state.types.map(type => (
               <TableRow key={type.id}>
                 <TableRowColumn>{type.name}</TableRowColumn>
                 <TableRowColumn>{type.description}</TableRowColumn>

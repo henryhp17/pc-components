@@ -14,7 +14,7 @@ import { getMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 
 import Header from './containers/Header';
 import Home from './containers/Home';
-import ProductType from './containers/ProductType';
+import Products from './containers/Products';
 
 import pcComponentsApp from './reducers/reducers';
 
@@ -52,7 +52,8 @@ class Main extends Component {
               <Header />
               <div style={styles.contentBody}>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/products" component={ProductType} />
+                <Route exact path="/products" component={Products} />
+
               </div>
             </div>
           </Router>
