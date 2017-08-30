@@ -85,6 +85,7 @@ class ProductType extends Component {
 
     return (
       <div>
+        <h3>Product Type</h3>
         <Table
           onRowSelection={this.selectProductType}
           selectable={false}
